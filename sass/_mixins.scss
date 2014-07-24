@@ -1,0 +1,40 @@
+﻿/* transition */
+@mixin transition-in($kind , $inTime , $delay) {
+	-webkit-transition       : $kind ease-in $inTime;
+	-moz-transition          : $kind ease-in $inTime;
+	-ms-transition           : $kind ease-in $inTime;
+	-o-transition            : $kind ease-in $inTime;
+	transition               : $kind ease-in $inTime;
+	-webkit-transition-delay : $delay;
+	-moz-transition-delay    : $delay;
+	-ms-transition-delay     : $delay;
+	-o-transition-delay      : $delay;
+	transition-delay         : $delay;
+}
+
+@mixin transition-out($kind , $outTime , $delay) {
+	-webkit-transition       : $kind ease-out $outTime;
+	-moz-transition          : $kind ease-out $outTime;
+	-ms-transition           : $kind ease-out $outTime;
+	-o-transition            : $kind ease-out $outTime;
+	transition               : $kind ease-out $outTime;
+	-webkit-transition-delay : $delay;
+	-moz-transition-delay    : $delay;
+	-ms-transition-delay     : $delay;
+	-o-transition-delay      : $delay;
+	transition-delay         : $delay;
+}
+
+// Placeholder text
+@mixin placeholder($color: $form-input-color-placeholder) {
+	&::-moz-placeholder {
+		color: $color;
+		opacity: 1;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+	&::-webkit-input-placeholder { 
+		color: $color;
+	}
+}

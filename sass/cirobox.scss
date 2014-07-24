@@ -1,0 +1,160 @@
+﻿@import "compass";
+@import "compass/reset";
+@import "mixins";
+
+.cirobox-middleSet {
+	position  : relative;
+	height    : 100%;
+	font-size : 0;
+
+	&:before {
+		content        : "";
+		display        : inline-block;
+		vertical-align : middle;
+		height         : 100%;
+	}
+
+	> * {
+		font-size      : inherit;
+		display        : inline-block;
+		vertical-align : middle;
+	}
+}
+
+.cirobox-backdrop {
+	top        : 0;
+	left       : 0;
+	width      : 100%;
+	height     : 100%;
+	background : #000;
+	z-index    : 998;
+	cursor     : not-allowed;
+	display    : block;
+	position   : fixed;
+	@include opacity(.75);
+	@include transition-out(all , .3s , 0);
+
+	&.is-hide {
+		@include opacity(0);
+		@include transition-in(all , .3s , 0);
+	}
+
+	&.cirobox-backdrop-close {
+		cursor : default;
+	}
+}
+
+.cirobox {
+	top           : 50%;
+	left          : 50%;
+	border        : 2px solid #CBCBCB;
+	max-width     : 9999px;
+	max-height    : 9999px;
+	overflow      : hidden;
+	border-radius : 5px;
+	background    : #FFF;
+	position      : fixed;
+	z-index       : 999;
+	@include transition-out(all , .3s , 0);
+	@include opacity(1);
+	@include clearfix;
+	@include box-shadow(rgba(0 , 0 , 0 , 0.45) 0 0 10px);
+
+	&.is-hide {
+		max-width  : 0;
+		max-height : 0;
+		width      : 0;
+		height     : 0;
+		@include opacity(0);
+		@include transition-in(all , .3s , 0);
+	}
+
+	.cirobox-hd {
+		top      : 0;
+		left     : 0;
+		width    : 100%;
+		height   : 0;
+		/*position : absolute;*/
+		z-index  : 2;
+	}
+
+	.cirobox-bd {
+		position : relative;
+		height   : 100%;
+		z-index  : 1;
+		@include box-sizing(border-box);
+
+		> div {
+			display : block !important;
+		}
+
+		.is-disable {
+			opacity : 0;
+		}
+	}
+
+	.cirobox-icon-close {
+		top             : 20px;
+		right           : 20px;
+		font-size       : 24px;
+		font-weight     : bold;
+		color           : #CCC;
+		width           : 24px;
+		height          : 24px;
+		line-height     : 24px;
+		text-align      : center;
+		position        : absolute;
+		text-decoration : none;
+		z-index         : 10;
+
+		&:hover {
+			color           : #999;
+			text-decoration : none;
+		}
+
+		&.is-hide {
+			display : none;
+		}
+
+		&.is-default {
+			top        : 50%;
+			margin-top : -12px; 
+		}
+
+		> i {
+			width   : 100%;
+			height  : 100%;
+			display : block;
+		}
+	}
+
+	.cirobox-loading {
+		top        : 0;
+		left       : 0;
+		font       : 12px/1.6em "微軟正黑體" , "Century Gothic" , sans-serif , serif;
+		width      : 100%;
+		height     : 100%;
+		text-align : center;
+		position   : absolute;
+
+		.cirobox-loading-bd {
+			width : 100%;
+		}
+
+		.cirobox-loading-bd-img {
+			width   : 100%;
+			height  : 80px;
+			display : block;
+		}
+
+		.cirobox-loading-bd-text {
+			margin-top : -10px;
+			color      : #333;
+			display    : block;
+		}
+	}
+
+	/*.iframe {
+		@include opacity(0);
+	}*/
+}
